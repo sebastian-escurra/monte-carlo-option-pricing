@@ -4,9 +4,9 @@ If we price an option with random simulation, how much more precise can we make 
 
 The notebook prices a European call (S0 = 100, strike 105, one year, 5% interest rate, 20% volatility). It compares standard Monte Carlo with two variance reduction techniques, antithetic variates and a control variate, used separately and together. That makes four estimators in total, all with the same budget of 1,000 payoff evaluations. The exact Black-Scholes price (8.0214) is used only as a yardstick.
 
-## Methods
+## Estimators
 
-| Method | Idea |
+| Estimator | Idea |
 |---|---|
 | Standard Monte Carlo | Average of the discounted payoffs. |
 | Antithetic variates | For every random number Z also use −Z. The two payoffs are negatively correlated, so their average is steadier. |
@@ -17,7 +17,7 @@ Every estimate comes with a standard error and a 95% confidence interval.
 
 ## Results
 
-Each method was repeated 5,000 times with a budget of 1,000 payoff evaluations (seed 42):
+Each estimator was repeated 5,000 times with a budget of 1,000 payoff evaluations (seed 42):
 
 | Method | Variance of the estimates | Times smaller than standard | Typical error (RMSE) | 95% CI contains the true price |
 |---|---|---|---|---|
@@ -28,7 +28,7 @@ Each method was repeated 5,000 times with a budget of 1,000 payoff evaluations (
 
 ![Distribution of the estimates](images/fig1.png)
 
-All methods keep the same error rate of 1/√budget (slope about −0.5 on a log-log plot). Variance reduction reduces the error by a constant factor, so it lowers the whole error curve without changing its slope.
+All four estimators keep the same error rate of 1/√budget (slope about −0.5 on a log-log plot). Variance reduction reduces the error by a constant factor, so it lowers the whole error curve without changing its slope.
 
 ![Error against budget](images/fig2.png)
 
