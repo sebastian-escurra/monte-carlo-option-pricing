@@ -2,7 +2,7 @@
 
 If we price an option with random simulation, how much more precise can we make the answer **without more computing effort**?
 
-The notebook prices a European call (S0 = 100, strike 105, one year, 5% interest rate, 20% volatility). It compares standard Monte Carlo with two variance reduction techniques, antithetic variates and a control variate, used separately and together. That makes four estimators in total, all with the same budget of 1,000 payoff evaluations. The exact Black-Scholes price (8.0214) is used only as a yardstick.
+The notebook prices a European call (S0 = 100, strike 105, one year, 5% interest rate, 20% volatility). It compares standard Monte Carlo with two variance reduction techniques, antithetic variates and a control variate, used separately and together. That makes four estimators in total, all with the same budget of 1,000 payoff evaluations. The Black-Scholes price (8.0214) is used only as a yardstick.
 
 ## Estimators
 
@@ -34,7 +34,7 @@ All four estimators keep the same error rate of 1/√budget (slope about −0.5 
 
 ## What the notebook covers
 
-1. The exact Black-Scholes price.
+1. The Black-Scholes price.
 2. Standard Monte Carlo with a confidence interval.
 3. Antithetic variates and the reason they work (correlation of about −0.37).
 4. The control variate and the reason it works (correlation of about 0.89).
